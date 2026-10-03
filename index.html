@@ -10,13 +10,25 @@
 <body>
     
   <header class="navbar">
-    <div class="logo">
-      <i class="fa-solid fa-infinity logo-icon"></i>
-      <span>wanderlog</span>
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-cloud logo-icon"></i>
+        <span class="logo-text">wanderlog</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="active">Home</a>
+        <a href="#">Travel guides</a>
+        <a href="#">Hotels</a>
+      </nav>
     </div>
-    <div class="nav-actions">
-        <a href="pages/login.html" class="btn-login">Log in</a>
-        <a href="pages/signup.html" class="btn-signup">Sign up</a>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Explore by destination">
+      </div>
+      <a href="pages/login.html" class="btn-login">Log in</a>
+      <a href="pages/signup.html" class="btn-signup">Sign up</a>
     </div>
   </header>
 
@@ -25,7 +37,7 @@
     <h1>One app for all your travel planning needs</h1>
     <p>Create detailed itineraries, explore user-shared guides, and manage your bookings seamlessly — all in one place.</p>
     <div class="hero-buttons">
-      <button class="btn-primary">Start planning</button>
+      <a class="btn-primary" href="pages/planing-01.html">Start planning</a>
     </div>
   </section>
 
@@ -84,7 +96,7 @@
       </div>
     </div>
     <div class="hero-buttons center-margin">
-      <button class="btn-primary">Start planning</button>
+      <a class="btn-primary" href="pages/planing-01.html">Start planning</a>
       <a href="#" class="btn-link">Get the app <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>

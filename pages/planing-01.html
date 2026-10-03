@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlog - Plan a new trip</title>
+  <link rel="stylesheet" href="../css/planing.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-cloud logo-icon"></i>
+        <span class="logo-text">wanderlog</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="active">Home</a>
+        <a href="#">Travel guides</a>
+        <a href="#">Hotels</a>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Explore by destination">
+      </div>
+      <a href="login.html" class="btn-login">Log in</a>
+      <a href="signup.html" class="btn-signup">Sign up</a>
+    </div>
+  </header>
+
+  <!-- Main Trip Planning Section -->
+  <main class="main-container">
+    <h1>Plan a new trip</h1>
+
+    <div class="trip-card">
+      <!-- Destination Input -->
+      <div class="input-field destination-field">
+        <label for="destination">Where to?</label>
+        <input type="text" id="destination" placeholder="e.g. Paris, Hawaii, Japan">
+      </div>
+
+      <!-- Date Pickers -->
+      <div class="dates-container">
+        <span class="dates-label">Dates (optional)</span>
+        <div class="dates-inputs">
+          <div class="date-box">
+            <i class="fa-regular fa-calendar"></i>
+            <input type="text" id="startDate" placeholder="Start date" onfocus="(this.type='date')" onblur="(this.type='text')">
+          </div>
+          <div class="date-box">
+            <i class="fa-regular fa-calendar"></i>
+            <input type="text" id="endDate" placeholder="End date" onfocus="(this.type='date')" onblur="(this.type='text')">
+          </div>
+        </div>
+      </div>
+
+      <!-- Invite Options -->
+      <div class="trip-options">
+        <button type="button" class="btn-invite" id="inviteBtn">
+          <i class="fa-solid fa-plus"></i> Invite tripmates
+        </button>
+        
+        <div class="privacy-dropdown">
+          <i class="fa-solid fa-user-group"></i>
+          <select id="privacySelect">
+            <option value="friends">Friends</option>
+            <option value="private">Private</option>
+            <option value="public">Public</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="btn-start" id="startPlanningBtn">Start planning</button>
+    <a href="#" class="guide-link">Or write a new guide</a>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Brand Column -->
+      <div class="footer-col brand-col">
+        <p>Made with <i class="fa-solid fa-heart heart-icon"></i> in SF & more</p>
+        <p class="copyright">&copy; 2026 Travelchime Inc.</p>
+        <button class="btn-language">
+          <i class="fa-solid fa-language"></i> Change language <i class="fa-solid fa-caret-down"></i>
+        </button>
+      </div>
+
+      <!-- Links Column 1 -->
+      <div class="footer-col">
+        <h4>Wanderlog</h4>
+        <ul>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Road trip planner</a></li>
+          <li><a href="#">Trip planner AI</a></li>
+          <li><a href="#">Plan a trip</a></li>
+          <li><a href="#">Trip planner mobile app</a></li>
+          <li><a href="#">Travel maps</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Report security issue</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2 -->
+      <div class="footer-col">
+        <h4>Guides and resources</h4>
+        <ul>
+          <li><a href="#">Trip planners by destination</a></li>
+          <li><a href="#">Explore cities and countries</a></li>
+          <li><a href="#">Road trips by destination</a></li>
+          <li><a href="#">Best places to visit by category</a></li>
+          <li><a href="#">Popular search terms by destination</a></li>
+          <li><a href="#">Weather around the world</a></li>
+          <li><a href="#">Travel questions & answers</a></li>
+          <li><a href="#">Travel itinerary guides</a></li>
+        </ul>
+      </div>
+
+      <!-- Mobile App Links Column -->
+      <div class="footer-col app-col">
+        <h4>Get the app</h4>
+        <div class="app-badges">
+          <a href="#" class="app-badge"><i class="fa-brands fa-apple"></i> Download on the<br><strong>App Store</strong></a>
+          <a href="#" class="app-badge"><i class="fa-brands fa-google-play"></i> GET IT ON<br><strong>Google Play</strong></a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../js/planing-01.js"></script>
+</body>
+</html>

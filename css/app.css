@@ -28,43 +28,96 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: #ff5a5f;
+  font-size: 1.4rem;
   font-weight: 800;
-  font-size: 1.5rem;
-  color: var(--primary-color);
 }
 
-.nav-actions {
+.logo-icon {
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.nav-links a.active {
+  color: #ff5a5f;
+}
+
+.nav-right {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  gap: 0.5rem;
+  width: 240px;
+}
+
+.search-bar i {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
 .btn-login {
   text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 600;
+  color: #1e293b;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
 }
 
 .btn-signup {
   text-decoration: none;
-  background-color: var(--primary-color);
-  color: white;
-  padding: 0.5rem 1.25rem;
+  background-color: #ff5a5f;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 20px;
-  font-weight: 600;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 .btn-signup:hover {
-  background-color: var(--primary-hover);
+  background-color: #e0484d;
 }
 
 /* HERO SECTION */
@@ -95,6 +148,7 @@ body {
 }
 
 .btn-primary {
+  display: inline-block;
   background-color: var(--primary-color);
   color: white;
   border: none;
@@ -103,6 +157,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* GRID LAYOUTS (INDUSTRY STANDARD CSS GRID) */

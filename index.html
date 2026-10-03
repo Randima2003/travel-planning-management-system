@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlog - Travel Planner</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+  <header class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-infinity logo-icon"></i>
+      <span>wanderlog</span>
+    </div>
+    <div class="nav-actions">
+      <a href="#" class="btn-login">Log in</a>
+      <a href="#" class="btn-signup">Sign up</a>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section class="hero-section">
+    <h1>One app for all your travel planning needs</h1>
+    <p>Create detailed itineraries, explore user-shared guides, and manage your bookings seamlessly — all in one place.</p>
+    <div class="hero-buttons">
+      <button class="btn-primary">Start planning</button>
+    </div>
+  </section>
+
+  <!-- features-->
+  <section class="container">
+    <h2 class="section-title">Features tools</h2>
+    <div class="grid-container features-grid">
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <span class="badge">TRIPADVISOR</span>
+          <span class="badge">LONELY PLANET</span>
+        </div>
+        <h3>Add places from guides with 1 click</h3>
+        <p>We crawled the web so you don't have to. Easily add mentioned places to your plan.</p>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <div class="avatars"><span>NV</span><span>OM</span><span>HY</span></div>
+          <div class="tooltip">Liked by Peter </div>
+        </div>
+        <h3>Get permission to visit certain places</h3>
+        <p>Keep track of your budget and split the cost between your tripmates.</p>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <div class="collab-box"><i class="fa-solid fa-envelope"></i> Connect</div>
+        </div>
+        <h3>Collaborate with friends in real time</h3>
+        <p>Plan along with your friends with live syncing and collaborative editing.</p>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <i class="fa-solid fa-money-bill-transfer feature-icon"></i>
+        </div>
+        <h3>Checklists for anything</h3>
+        <p>Stay organized with a packing list, to-do list, shopping list, any kind of list.</p>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <i class="fa-solid fa-list-check feature-icon"></i>
+        </div>
+        <h3>Get personalized recommendations</h3>
+        <p>Find the best places to visit with smart recommendations based on your itinerary.</p>
+      </div>
+
+      <div class="card feature-card">
+        <div class="card-img-placeholder">
+          <i class="fa-solid fa-plane-departure feature-icon"></i>
+        </div>
+        <h3>Import flight and hotel reservations</h3>
+        <p>Connect or forward your emails to get it magically added into your trip plan.</p>
+      </div>
+    </div>
+    <div class="hero-buttons center-margin">
+      <button class="btn-primary">Start planning</button>
+      <a href="#" class="btn-link">Get the app <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION (GRID) -->
+  <section class="container bg-light">
+    <h2 class="section-title">What travelers are raving about</h2>
+    <p class="section-subtitle">Over 1 million people have already tried Wanderlog and loved its easy trip planning features.</p>
+
+    <div class="grid-container reviews-grid" id="reviewsContainer">
+      <!-- Dynamic content or HTML static cards -->
+      <div class="card review-card">
+        <div class="user-info">
+          <div class="avatar">N</div>
+          <div>
+            <h4>Nadia</h4>
+            <span class="user-role">Travel Blogger</span>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>Planning your trip by having all the attractions already plugged into a map makes trip planning so much easier.</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="user-info">
+          <div class="avatar">S</div>
+          <div>
+            <h4>Sharon Brewster</h4>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>amazing app! easy to use, love the AI functionality.</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="user-info">
+          <div class="avatar">J</div>
+          <div>
+            <h4>Jayson Oite</h4>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>It seems to be this is my new travel app buddy. Very handy, convenient and very easy to use.</p>
+      </div>
+
+      <div class="card review-card">
+        <div class="user-info">
+          <div class="avatar">E</div>
+          <div>
+            <h4>Erica Franco</h4>
+          </div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p>Absolutely love this app! It is so helpful when planning my trips. I especially love The optimize route option.</p>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn-secondary" id="moreReviewsBtn">See more reviews</button>
+    </div>
+  </section>
+
+  <!-- ITINERARIES / ADVENTURE SECTION (GRID) -->
+  <section class="container">
+    <h2 class="section-title">Find your next adventure</h2>
+    <p class="section-subtitle">Browse through itineraries and guides crafted by fellow travelers.</p>
+
+    <div class="grid-container itineraries-grid">
+      <div class="card trip-card">
+        <div class="trip-img trip-bg-1"></div>
+        <div class="trip-details">
+          <h4>Paris 5 Day Tourist Itinerary</h4>
+          <p>I've studied abroad in Paris. Other than that, I've visited Paris 6 times...</p>
+          <div class="author-meta">
+            <span>Elisa Li</span>
+            <span>👁 105,590 • ♡ 514</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card trip-card">
+        <div class="trip-img trip-bg-2"></div>
+        <div class="trip-details">
+          <h4>Japan: Video Game Guide</h4>
+          <p>Did a summer internship in Japan during 2019. Stayed in Shinagawa City...</p>
+          <div class="author-meta">
+            <span>Tuyet</span>
+            <span>👁 36,112 • ♡ 691</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card trip-card">
+        <div class="trip-img trip-bg-3"></div>
+        <div class="trip-details">
+          <h4>Puerto Rico Guide</h4>
+          <p>This is a collection of 'best of' since I moved to the island...</p>
+          <div class="author-meta">
+            <span>Gillian Morris</span>
+            <span>👁 28,075 • ♡ 142</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card trip-card">
+        <div class="trip-img trip-bg-4"></div>
+        <div class="trip-details">
+          <h4>Boston Walking Tour</h4>
+          <p>I lived in the area for 2 years during graduate school...</p>
+          <div class="author-meta">
+            <span>DX</span>
+            <span>👁 6,488 • ♡ 91</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (GRID) -->
+  <footer class="footer">
+    <div class="grid-container footer-grid">
+      <div class="footer-col">
+        <button class="btn-lang"><i class="fa-solid fa-globe"></i> Change language ▼</button>
+        <p class="copyright">Made with ❤️ from SF & more © 2022 Travelchime Inc.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Wanderlog</h4>
+        <ul>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Report security issue</a></li>
+          <li><a href="#">Terms & Privacy</a></li>
+          <li><a href="#">Mobile app</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Guide and resources</h4>
+        <ul>
+          <li><a href="#">Trip planners by destination</a></li>
+          <li><a href="#">Explore cities and countries</a></li>
+          <li><a href="#">Road trips by destination</a></li>
+          <li><a href="#">Places to visit by destination</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get the app</h4>
+        <div class="app-badges">
+          <div class="store-badge">App Store</div>
+          <div class="store-badge">Google Play</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

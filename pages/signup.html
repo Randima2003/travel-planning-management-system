@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Travel Planner account">
+  <meta name="author" content="Travel Planner">
+
+  <title>Sign Up - Travel Planner</title>
+
+  <!-- Signup CSS -->
+  <link rel="stylesheet" href="../css/signup.css">
+
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  >
+</head>
+
+<body>
+
+  <div class="signup-card">
+
+    <h2>Create your Travel Planner account</h2>
+
+    <!-- SOCIAL SIGNUP -->
+    <div class="social-signup">
+
+      <button type="button" class="btn-social btn-facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+        <span>Sign up with Facebook</span>
+      </button>
+
+      <button type="button" class="btn-social btn-google">
+        <i class="fa-brands fa-google"></i>
+        <span>Sign up with Google</span>
+      </button>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+      <span>or</span>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <form id="signupForm" class="signup-form" novalidate>
+
+      <!-- USERNAME -->
+      <div class="input-group">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <!-- EMAIL -->
+      <div class="input-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="input-group password-group">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        >
+
+        <i
+          class="fa-regular fa-eye-slash toggle-password"
+          id="togglePassword"
+          title="Show password"
+        ></i>
+      </div>
+
+      <!-- MESSAGE -->
+      <p
+        id="signupMessage"
+        class="form-message"
+        role="status"
+        aria-live="polite"
+      ></p>
+
+      <!-- SIGNUP BUTTON -->
+      <button type="submit" id="signupButton" class="btn-submit">
+        Sign up with email
+      </button>
+
+    </form>
+
+    <!-- LOGIN FOOTER -->
+    <div class="login-footer">
+      <p>
+        Already have an account?
+        <a href="login.html">Log in</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SIGNUP JAVASCRIPT -->
+  <script src="../js/signup.js"></script>
+
+</body>
+
+</html>

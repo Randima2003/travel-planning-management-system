@@ -1,4 +1,4 @@
-/* Reset & Fonts */
+/* Reset & Base Styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +16,7 @@ body {
 }
 
 /* Card Container */
-.login-card {
+.signup-card {
   background-color: #ffffff;
   width: 100%;
   max-width: 440px;
@@ -26,7 +26,7 @@ body {
   text-align: center;
 }
 
-.login-card h2 {
+.signup-card h2 {
   font-size: 1.35rem;
   font-weight: 700;
   color: #1e293b;
@@ -34,7 +34,7 @@ body {
 }
 
 /* Social Buttons */
-.social-login {
+.social-signup {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -73,8 +73,8 @@ body {
   background-color: #324d85;
 }
 
-/* Google & Apple Buttons */
-.btn-google, .btn-apple {
+/* Google Button */
+.btn-google {
   color: #334155;
   border-color: #cbd5e1;
 }
@@ -83,7 +83,7 @@ body {
   color: #ea4335;
 }
 
-.btn-google:hover, .btn-apple:hover {
+.btn-google:hover {
   background-color: #f8fafc;
 }
 
@@ -115,7 +115,7 @@ body {
 }
 
 /* Form Styling */
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -154,21 +154,7 @@ body {
   font-size: 1rem;
 }
 
-/* Links & Submit Button */
-.forgot-password {
-  margin-top: -0.25rem;
-}
-
-.forgot-password a {
-  color: #64748b;
-  font-size: 0.8rem;
-  text-decoration: none;
-}
-
-.forgot-password a:hover {
-  text-decoration: underline;
-}
-
+/* Submit Button */
 .btn-submit {
   margin-top: 0.5rem;
   background: none;
@@ -203,18 +189,18 @@ body {
   color: #b91c1c;
 }
 
-.signup-footer {
+.login-footer {
   margin-top: 1.5rem;
   font-size: 0.85rem;
   color: #64748b;
 }
 
-.signup-footer a {
+.login-footer a {
   color: #1e293b;
   font-weight: 700;
   text-decoration: none;
 }
 
-.signup-footer a:hover {
+.login-footer a:hover {
   text-decoration: underline;
 }

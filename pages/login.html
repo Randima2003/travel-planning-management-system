@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log in</title>
+  <link rel="stylesheet" href="../css/login..css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="login-card">
+    <h2>Log in to view this page</h2>
+
+    <!-- Social Login Buttons -->
+    <div class="social-login">
+      <button class="btn-social btn-facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+        <span>Log in with Facebook</span>
+      </button>
+
+      <button class="btn-social btn-google">
+        <i class="fa-brands fa-google"></i>
+        <span>Log in with Google</span>
+      </button>
+
+      <button class="btn-social btn-apple">
+        <i class="fa-brands fa-apple"></i>
+        <span>Log in with Apple</span>
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <span>or</span>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="login-form">
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email" required>
+      </div>
+
+      <div class="input-group password-group">
+        <input type="password" id="password" placeholder="Password" required>
+        <i class="fa-regular fa-eye-slash toggle-password" id="togglePassword"></i>
+      </div>
+
+      <div class="forgot-password">
+        <a href="#">Forgot password</a>
+      </div>
+
+      <button type="submit" id="loginButton" class="btn-submit">Log in</button>
+      <p id="loginMessage" class="form-message" role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="signup-footer">
+      <p>Don't have an account yet? <a href="signup.html">Sign up</a></p>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

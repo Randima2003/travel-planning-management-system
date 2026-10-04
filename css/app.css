@@ -1,7 +1,7 @@
 /* CSS VARIABLES & RESET */
 :root {
-  --primary-color: #ff5a43;
-  --primary-hover: #e04832;
+  --primary-color: var(--brand-primary);
+  --primary-hover: var(--brand-primary-hover);
   --text-dark: #1e293b;
   --text-muted: #64748b;
   --bg-light: #f8fafc;
@@ -43,7 +43,7 @@ body {
   align-items: center;
   gap: 0.4rem;
   text-decoration: none;
-  color: #ff5a5f;
+  color: var(--brand-primary);
   font-size: 1.4rem;
   font-weight: 800;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 .nav-links a.active {
-  color: #ff5a5f;
+  color: var(--brand-primary);
 }
 
 .nav-right {
@@ -107,7 +107,7 @@ body {
 
 .btn-signup {
   text-decoration: none;
-  background-color: #ff5a5f;
+  background-color: var(--brand-primary);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.9rem;
@@ -117,7 +117,7 @@ body {
 }
 
 .btn-signup:hover {
-  background-color: #e0484d;
+  background-color: var(--brand-primary-hover);
 }
 
 /* HERO SECTION */
@@ -281,7 +281,7 @@ body {
 }
 
 .stars {
-  color: #f59e0b;
+  color: var(--brand-turquoise);
   font-size: 0.9rem;
 }
 

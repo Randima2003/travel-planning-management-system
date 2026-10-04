@@ -1,3 +1,9 @@
+:root {
+  --brand-primary: #07549c;
+  --brand-primary-hover: #063f79;
+  --brand-turquoise: #12aeb8;
+}
+
 .brand-logo-image {
   display: block;
   width: 84px;
@@ -14,4 +20,14 @@
 .auth-brand .brand-logo-image {
   width: 112px;
   height: 112px;
+}
+
+.navbar .nav-links a {
+  font-size: 0.95rem;
+}
+
+.navbar .search-bar input,
+.navbar .btn-login,
+.navbar .btn-signup {
+  font-size: 0.9rem;
 }

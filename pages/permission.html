@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knuckles permission request - Wanderlog</title>
+  <title>Permission request - VentureVista</title>
   <link rel="stylesheet" href="../css/permission.css">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <!-- Font Awesome Icons -->
+  <link rel="icon" type="image/png" href="../pages/">
+  <style>
+    .logo {
+      width: 40px;
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,9 +21,8 @@
   <header class="navbar">
     <div class="nav-left">
       <a href="../index.html" class="logo">
-        <i class="fa-solid fa-cloud logo-icon"></i>
-        <span>wanderlog</span>
-      </a>
+  <img src="../VLogo.png" alt="VentureVista Logo" style="height: 50px; width: auto; object-fit: contain;">
+</a>
       <nav class="nav-links">
         <a href="../index.html" class="active">Home</a>
         <a href="planing-01.html">Plan a trip</a>
@@ -60,7 +66,7 @@
           <div class="form-grid">
             <div class="input-group">
               <label>Full name *</label>
-              <input type="text" id="fullName" value="Kasun Perera" required>
+              <input type="text" id="fullName" placeholder="Enter your full name" required>
             </div>
 
             <div class="input-group">
@@ -81,22 +87,22 @@
 
             <div class="input-group">
               <label>NIC / Passport number *</label>
-              <input type="text" id="idNumber" value="199512345678" required>
+              <input type="text" id="idNumber" placeholder="Enter your NIC or Passport number" required>
             </div>
 
             <div class="input-group">
               <label>Email address *</label>
-              <input type="email" id="email" value="kasun.perera@gmail.com" required>
+              <input type="email" id="email" placeholder="Enter your email address" required>
             </div>
 
             <div class="input-group">
               <label>Mobile number *</label>
-              <input type="tel" id="mobileNumber" value="+94 77 123 4567" required>
+              <input type="tel" id="mobileNumber" placeholder="Enter your mobile number" required>
             </div>
 
             <div class="input-group full-width">
               <label>Residential address *</label>
-              <input type="text" id="residentialAddress" value="24 Temple Road, Kandy, Sri Lanka" required>
+              <input type="text" id="residentialAddress" placeholder="Enter your residential address" required>
             </div>
           </div>
         </div>
@@ -111,12 +117,12 @@
           <div class="form-grid">
             <div class="input-group">
               <label>Visit start date *</label>
-              <input type="date" id="startDate" value="2026-10-22" required>
+              <input type="date" id="startDate" placeholder="Select start date" required>
             </div>
 
             <div class="input-group">
               <label>Visit end date *</label>
-              <input type="date" id="endDate" value="2026-10-22" required>
+              <input type="date" id="endDate" placeholder="Select end date" required>
             </div>
 
             <div class="input-group">
@@ -130,13 +136,13 @@
 
             <div class="input-group">
               <label>Number of visitors *</label>
-              <input type="number" id="numberOfVisitors" value="6" min="1" required>
+              <input type="number" id="numberOfVisitors" placeholder="Enter number of visitors" min="1" required>
             </div>
 
             <div class="input-group">
               <label>Entry point *</label>
               <select id="entryPoint" required>
-                <option value="Deanston Conservation Centre" selected>Deanston Conservation Centre</option>
+                <option value="Deanston Conservation Centre" selected>Entry Point</option>
                 <option value="Atanwala">Atanwala</option>
                 <option value="Illukkumbura">Illukkumbura</option>
               </select>
@@ -144,7 +150,7 @@
 
             <div class="input-group">
               <label>Planned trail / area *</label>
-              <input type="text" id="plannedTrailArea" value="Mini World's End trail" required>
+              <input type="text" id="plannedTrailArea" placeholder="Enter planned trail or area" required>
             </div>
 
             <div class="input-group full-width">
@@ -175,7 +181,7 @@
               <div class="uploaded-file-card" id="idDocPreview">
                 <i class="fa-regular fa-file-pdf file-icon"></i>
                 <div class="file-details">
-                  <span class="file-name" id="idDocName">Kasun_Perera_NIC.pdf</span>
+                  <span class="file-name" id="idDocName">Full_Name_NIC.pdf</span>
                   <span class="file-status">842 KB · Uploaded</span>
                 </div>
                 <button type="button" class="remove-btn" onclick="removeFile('idDocument')"><i class="fa-solid fa-xmark"></i></button>

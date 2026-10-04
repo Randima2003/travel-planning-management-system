@@ -23,15 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (Boolean(startDate) !== Boolean(endDate)) {
+      alert('Please select both trip dates, or leave both dates empty.');
+      return;
+    }
+
+    if (startDate && endDate && endDate < startDate) {
+      alert('The end date must be on or after the start date.');
+      endDateInput.focus();
+      return;
+    }
+
     const tripData = {
       destination,
-      startDate: startDate || 'Not specified',
-      endDate: endDate || 'Not specified',
+      startDate,
+      endDate,
       privacy
     };
 
-    console.log('Trip Planning Initiated:', tripData);
-    alert(`Starting your trip plan for ${destination}!`);
+    const query = new URLSearchParams(tripData);
+    window.location.href = `startPlaning.html?${query.toString()}`;
   });
 
   // Invite Button Action

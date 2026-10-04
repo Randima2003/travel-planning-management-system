@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip itinerary - VentureVista</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="../css/startPlaning.css">
+  <link rel="stylesheet" href="../css/brand.css">
+  
+  <!-- FontAwesome & Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <img class="brand-logo-image" src="../VLogo.png" alt="VentureVista">
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="permission.html">Permission</a>
+        <a href="planing-01.html">Plan a trip</a>
+        <a href="#">Hotels</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Explore by destination">
+      </div>
+      <a href="login.html" class="btn-login">Log in</a>
+      <a href="signup.html" class="btn-signup">Sign up</a>
+    </div>
+  </header>
+
+  <!-- Hero Cover Banner -->
+  <div class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="badge" id="tripPrivacyBadge">FRIENDS TRIP</span>
+      <h1 id="tripTitle">Explore Sri Lankan Paradises</h1>
+      <p class="subtitle" id="tripSummary">Mapping out your island adventure.</p>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="main-layout">
+    
+    <!-- Top Interactive Section: Map View -->
+    <section class="map-section">
+      <div class="section-title-row">
+        <h2>Interactive Map</h2>
+        <span class="sub-text"><i class="fa-solid fa-location-dot"></i> Sri Lanka Destinations</span>
+      </div>
+      <div id="map"></div>
+    </section>
+
+    <!-- Itinerary Section -->
+    <section class="itinerary-section">
+      <div class="itinerary-header">
+        <div>
+          <h2>Itinerary</h2>
+          <p class="section-subtitle">Organize your daily route & places</p>
+        </div>
+        <button class="btn-primary" id="openDateModalBtn">
+          <i class="fa-regular fa-calendar-plus"></i> Add trip dates
+        </button>
+      </div>
+
+      <!-- Selected Date Range Banner -->
+      <div class="date-badge-container hidden" id="selectedDateBadge">
+        <span class="date-range-text"><i class="fa-solid fa-calendar-days"></i> <span id="dateRangeDisplay">10/1 - 10/3</span></span>
+        <button class="btn-text" id="changeDatesBtn">Change dates</button>
+      </div>
+
+      <!-- Dynamic Itinerary Days List -->
+      <div class="itinerary-days-container" id="itineraryDaysList">
+        <!-- Default Days (Auto generated or custom) -->
+      </div>
+    </section>
+
+    <!-- Community Guides & Explore Section -->
+    <section class="guides-section">
+      <div class="section-title-row">
+        <h2>Community guides</h2>
+        <a href="#" class="view-all-link">See all guides <i class="fa-solid fa-chevron-right"></i></a>
+      </div>
+      <h3 class="subsection-title">Explore</h3>
+
+      <div class="guides-grid">
+        <div class="guide-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=600&q=80');"></div>
+          <div class="card-body">
+            <h4>Sigiriya Fortress & Cultural Triangle</h4>
+            <p>Climb ancient rock fortresses and explore sacred ruins in Dambulla.</p>
+            <div class="card-footer">
+              <span class="price-tag">Avg. LKR 15,000</span>
+              <button class="btn-outline" onclick="addSuggestedPlace('Sigiriya Rock Fortress', 15000)">+ Add to trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=600&q=80');"></div>
+          <div class="card-body">
+            <h4>Scenic Ella Train & Nine Arches</h4>
+            <p>Experience world famous train rides, tea plantations & mountain hikes.</p>
+            <div class="card-footer">
+              <span class="price-tag">Avg. LKR 8,500</span>
+              <button class="btn-outline" onclick="addSuggestedPlace('Nine Arches Bridge Ella', 8500)">+ Add to trip</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-card">
+          <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80');"></div>
+          <div class="card-body">
+            <h4>Mirissa Whale Watching & Beaches</h4>
+            <p>Relax on sandy beaches and encounter blue whales on ocean safaris.</p>
+            <div class="card-footer">
+              <span class="price-tag">Avg. LKR 22,000</span>
+              <button class="btn-outline" onclick="addSuggestedPlace('Mirissa Whale Watching', 22000)">+ Add to trip</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Budgeting Section (Auto calculated from Itinerary) -->
+    <section class="budgeting-section">
+      <h2>Budgeting</h2>
+      <p class="section-subtitle">Real-time expenditure tracked from your itinerary</p>
+
+      <div class="budget-card">
+        <div class="budget-main">
+          <span class="budget-label">Total Budget</span>
+          <div class="budget-amount" id="totalBudgetDisplay">LKR 0.00</div>
+          <p class="budget-subtext"><i class="fa-solid fa-circle-info"></i> Automatically aggregated from all daily activities.</p>
+        </div>
+        <div class="budget-actions">
+          <button class="btn-secondary"><i class="fa-solid fa-wallet"></i> View breakdown</button>
+          <button class="btn-secondary"><i class="fa-solid fa-user-plus"></i> Group expenses</button>
+          <button class="btn-secondary"><i class="fa-solid fa-gear"></i> Settings</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo"><i class="fa-solid fa-cloud-sun"></i> wanderlog</a>
+        <p>Your ultimate travel itinerary and trip planning assistant.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Destinations</h5>
+        <a href="#">Kandy</a>
+        <a href="#">Ella</a>
+        <a href="#">Galle</a>
+        <a href="#">Sigiriya</a>
+      </div>
+      <div class="footer-col">
+        <h5>Tools & Resources</h5>
+        <a href="#">Budget Calculator</a>
+        <a href="#">Route Optimizer</a>
+        <a href="#">Travel Guides</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Date Selector Modal -->
+  <div class="modal-overlay" id="dateModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Select Trip Dates</h3>
+        <button class="close-btn" id="closeDateModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" id="startDateInput">
+        </div>
+        <div class="form-group">
+          <label>End Date</label>
+          <input type="date" id="endDateInput">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="cancelDateBtn">Cancel</button>
+        <button class="btn-primary" id="saveDatesBtn">Apply Dates</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../js/startPlaning.js"></script>
+</body>
+</html>

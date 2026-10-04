@@ -1,5 +1,6 @@
-```javascript
 document.addEventListener("DOMContentLoaded", () => {
+
+    const API_URL = "http://localhost:8080/api/auth/login";
 
     // ==============================
     // Get HTML Elements
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
 
     if (!loginForm) {
+        console.error("loginForm not found.");
         return;
     }
 
@@ -22,36 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show / Hide Password
     // ==============================
 
-    togglePassword?.addEventListener("click", () => {
+    if (togglePassword) {
 
-        const isPassword =
-            passwordInput.type === "password";
+        togglePassword.addEventListener("click", () => {
 
-        if (isPassword) {
+            const isPassword =
+                passwordInput.type === "password";
 
-            passwordInput.type = "text";
+            passwordInput.type =
+                isPassword ? "text" : "password";
 
-            togglePassword.classList.remove(
-                "fa-eye-slash"
+            togglePassword.classList.toggle(
+                "fa-eye",
+                isPassword
             );
 
-            togglePassword.classList.add(
-                "fa-eye"
+            togglePassword.classList.toggle(
+                "fa-eye-slash",
+                !isPassword
             );
-
-        } else {
-
-            passwordInput.type = "password";
-
-            togglePassword.classList.remove(
-                "fa-eye"
-            );
-
-            togglePassword.classList.add(
-                "fa-eye-slash"
-            );
-        }
-    });
+        });
+    }
 
 
     // ==============================
@@ -62,20 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         event.preventDefault();
 
-
-        // ==============================
-        // Get Values
-        // ==============================
-
-        const email =
-            emailInput.value.trim();
-
-        const password =
-            passwordInput.value;
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
 
 
         // ==============================
-        // Clear Previous Message
+        // Clear Message
         // ==============================
 
         loginMessage.textContent = "";
@@ -83,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // ==============================
-        // Frontend Validation
+        // Validation
         // ==============================
 
         if (!email || !password) {
@@ -98,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         // ==============================
-        // Disable Login Button
+        // Disable Button
         // ==============================
 
         loginButton.disabled = true;
@@ -108,28 +93,26 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
 
             // ==============================
-            // Send Request to Spring Boot
+            // Send Request
             // ==============================
 
-            const response = await fetch(
-                "http://localhost:8080/api/auth/login",
-                {
-                    method: "POST",
+            const response = await fetch(API_URL, {
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+                method: "POST",
 
-                    body: JSON.stringify({
-                        email: email,
-                        password: password
-                    })
-                }
-            );
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            });
 
 
             // ==============================
-            // Get Backend Response
+            // Read Response
             // ==============================
 
             const data =
@@ -137,14 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // ==============================
-            // Login Failed
+            // Handle Error
             // ==============================
 
             if (!response.ok) {
 
                 throw new Error(
                     data.message ||
-                    "Invalid email or password."
+                    data.error ||
+                    `Login failed (${response.status})`
                 );
             }
 
@@ -160,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // ==============================
-            // Save User in Local Storage
+            // Save User
             // ==============================
 
             localStorage.setItem(
@@ -174,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // ==============================
-            // Go to Home Page
+            // Redirect
             // ==============================
 
             setTimeout(() => {
@@ -187,43 +171,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
 
-            console.error(
-                "Login error:",
-                error
-            );
+            console.error("Login error:", error);
 
 
             // ==============================
-            // Connection Error
+            // Connection / CORS Error
             // ==============================
 
             if (error instanceof TypeError) {
 
                 loginMessage.textContent =
-                    "Unable to connect to the server. Please make sure Spring Boot is running.";
+                    "Cannot connect to the backend. Make sure Spring Boot is running on port 8080 and CORS is enabled.";
 
             } else {
 
                 loginMessage.textContent =
-                    error.message;
+                    error.message ||
+                    "Login failed.";
             }
-
 
             loginMessage.classList.add("error");
 
 
         } finally {
 
-            // ==============================
-            // Enable Button Again
-            // ==============================
-
             loginButton.disabled = false;
             loginButton.textContent = "Log in";
-
         }
 
     });
 
 });
-```

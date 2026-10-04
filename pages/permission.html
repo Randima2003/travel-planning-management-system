@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knuckles permission request - Wanderlog</title>
+  <link rel="stylesheet" href="../css/permission.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo">
+        <i class="fa-solid fa-cloud logo-icon"></i>
+        <span>wanderlog</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="active">Home</a>
+        <a href="planing-01.html">Plan a trip</a>
+        <a href="#">Hotels</a>
+        <a href="#">Deals</a>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Enter place or user">
+      </div>
+      <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+      <div class="user-avatar">AL <i class="fa-solid fa-chevron-down"></i></div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-container">
+    <h1 class="page-title">Request Permission</h1>
+    <div class="info-banner">
+      <i class="fa-solid fa-circle-info"></i>
+      Submit your request at least 1 week before your visit. Fields marked * are required. Permission is subject to approval.
+    </div>
+
+    <!-- Main Layout Grid -->
+    <div class="main-grid">
+      
+      <!-- Left Column: Form Sections -->
+      <form id="permitForm" class="form-container">
+        
+        <!-- Section 1: Applicant Details -->
+        <div class="card-section">
+          <div class="section-header">
+            <i class="fa-regular fa-user"></i>
+            <h3>Applicant Details</h3>
+          </div>
+          <p class="section-desc">Enter the details of the person responsible for this visit.</p>
+
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Full name *</label>
+              <input type="text" id="fullName" value="Kasun Perera" required>
+            </div>
+
+            <div class="input-group">
+              <label>Nationality *</label>
+              <select id="nationality" required>
+                <option value="Sri Lankan" selected>Sri Lankan</option>
+                <option value="Foreigner">Foreigner</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Identification type *</label>
+              <select id="idType" required>
+                <option value="National Identity Card (NIC)" selected>National Identity Card (NIC)</option>
+                <option value="Passport">Passport</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>NIC / Passport number *</label>
+              <input type="text" id="idNumber" value="199512345678" required>
+            </div>
+
+            <div class="input-group">
+              <label>Email address *</label>
+              <input type="email" id="email" value="kasun.perera@gmail.com" required>
+            </div>
+
+            <div class="input-group">
+              <label>Mobile number *</label>
+              <input type="tel" id="mobileNumber" value="+94 77 123 4567" required>
+            </div>
+
+            <div class="input-group full-width">
+              <label>Residential address *</label>
+              <input type="text" id="residentialAddress" value="24 Temple Road, Kandy, Sri Lanka" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Visit Details -->
+        <div class="card-section">
+          <div class="section-header">
+            <i class="fa-regular fa-calendar"></i>
+            <h3>Visit Details</h3>
+          </div>
+
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Visit start date *</label>
+              <input type="date" id="startDate" value="2026-10-22" required>
+            </div>
+
+            <div class="input-group">
+              <label>Visit end date *</label>
+              <input type="date" id="endDate" value="2026-10-22" required>
+            </div>
+
+            <div class="input-group">
+              <label>Purpose of visit *</label>
+              <select id="purposeOfVisit" required>
+                <option value="Hiking / Nature observation" selected>Hiking / Nature observation</option>
+                <option value="Research">Research</option>
+                <option value="Camping">Camping</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Number of visitors *</label>
+              <input type="number" id="numberOfVisitors" value="6" min="1" required>
+            </div>
+
+            <div class="input-group">
+              <label>Entry point *</label>
+              <select id="entryPoint" required>
+                <option value="Deanston Conservation Centre" selected>Deanston Conservation Centre</option>
+                <option value="Atanwala">Atanwala</option>
+                <option value="Illukkumbura">Illukkumbura</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Planned trail / area *</label>
+              <input type="text" id="plannedTrailArea" value="Mini World's End trail" required>
+            </div>
+
+            <div class="input-group full-width">
+              <label>Additional visit information</label>
+              <textarea id="additionalInformation" rows="3">Day hike with a local guide. No overnight camping planned.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Required Documents -->
+        <div class="card-section">
+          <div class="section-header">
+            <i class="fa-regular fa-file-lines"></i>
+            <h3>Required Documents</h3>
+          </div>
+          <p class="section-desc">Upload clear, readable copies. Your identification must match the applicant details above.</p>
+
+          <div class="upload-grid">
+            <!-- NIC / Passport Upload -->
+            <div class="upload-box">
+              <label class="upload-label">NIC / Passport copy *</label>
+              <div class="drop-zone" onclick="document.getElementById('idDocument').click()">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <p><strong>Choose file</strong> or drag and drop</p>
+                <span class="file-info">PDF, JPG or PNG · Up to 5 MB</span>
+                <input type="file" id="idDocument" accept=".pdf,.jpg,.jpeg,.png" hidden>
+              </div>
+              <div class="uploaded-file-card" id="idDocPreview">
+                <i class="fa-regular fa-file-pdf file-icon"></i>
+                <div class="file-details">
+                  <span class="file-name" id="idDocName">Kasun_Perera_NIC.pdf</span>
+                  <span class="file-status">842 KB · Uploaded</span>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeFile('idDocument')"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+            </div>
+
+            <!-- Itinerary Upload -->
+            <div class="upload-box">
+              <label class="upload-label">Travel itinerary / Trip details *</label>
+              <div class="drop-zone" onclick="document.getElementById('itineraryDocument').click()">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                <p><strong>Choose file</strong> or drag and drop</p>
+                <span class="file-info">PDF, JPG or PNG · Up to 5 MB</span>
+                <input type="file" id="itineraryDocument" accept=".pdf,.jpg,.jpeg,.png" hidden>
+              </div>
+              <div class="uploaded-file-card" id="itineraryDocPreview">
+                <i class="fa-regular fa-file-pdf file-icon"></i>
+                <div class="file-details">
+                  <span class="file-name" id="itineraryDocName">Knuckles_Visit_Itinerary.pdf</span>
+                  <span class="file-status">216 KB · Uploaded</span>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeFile('itineraryDocument')"><i class="fa-solid fa-xmark"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Declaration -->
+        <div class="card-section">
+          <div class="section-header">
+            <i class="fa-regular fa-circle-check"></i>
+            <h3>Declaration</h3>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="declaration" checked required>
+            <label for="declaration">
+              I confirm that the information and documents provided are accurate. I agree to follow the designated hiking trails, not disturb wildlife or litter, and comply with the guide's instructions and all permit conditions.
+            </label>
+          </div>
+          <p class="sub-text">Submitting this request does not grant permission to enter. Please wait for approval before your visit.</p>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <span class="confirmation-note"><i class="fa-regular fa-envelope"></i> A confirmation will be sent to your email.</span>
+          <div class="action-buttons">
+            <a class="btn-cancel" href="planing-01.html">Cancel</a>
+            <button type="submit" class="btn-submit">Submit Request <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+      </form>
+
+      <!-- Right Column: Sidebar Panels -->
+      <aside class="sidebar">
+        
+        <!-- Permit Summary Card -->
+        <div class="side-card">
+          <div class="side-header">
+            <i class="fa-regular fa-shield-halved"></i>
+            <h4>Permit Summary</h4>
+          </div>
+
+          <div class="alert-box green-alert">
+            <i class="fa-regular fa-circle-check"></i>
+            <div>
+              <strong>Permission Required</strong>
+              <p>You need a permit to visit this location.</p>
+            </div>
+          </div>
+
+          <div class="summary-details">
+            <h5>Knuckles Conservation Area</h5>
+
+            <div class="detail-row">
+              <i class="fa-regular fa-id-card"></i>
+              <div>
+                <span class="label">Permission Type</span>
+                <span class="val">Conservation Area Entry Permit</span>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <i class="fa-solid fa-building-columns"></i>
+              <div>
+                <span class="label">Issuing Authority</span>
+                <span class="val">Department of Wildlife Conservation (DWC)</span>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <i class="fa-regular fa-clock"></i>
+              <div>
+                <span class="label">Processing Time</span>
+                <span class="val">2 – 3 Working Days</span>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <div>
+                <span class="label">Permission Fee</span>
+                <span class="val">LKR 500 (per person)</span>
+              </div>
+            </div>
+
+            <hr class="divider">
+
+            <div class="fee-summary">
+              <div>
+                <strong>Estimated permit fee</strong>
+                <span class="sub-fee" id="feeCalculationText">6 visitors × LKR 500</span>
+              </div>
+              <div class="total-fee" id="totalFeeText">LKR 3,000</div>
+            </div>
+
+            <p class="fee-note">Fees are subject to confirmation by the issuing authority. No payment is collected with this request.</p>
+          </div>
+        </div>
+
+        <!-- Contact Information Card -->
+        <div class="side-card">
+          <div class="side-header">
+            <i class="fa-solid fa-phone"></i>
+            <h4>Contact Information</h4>
+          </div>
+          <p class="dept-title">Department of Wildlife Conservation</p>
+          <ul class="contact-list">
+            <li><i class="fa-solid fa-phone"></i> +94 11 2 888 000</li>
+            <li><i class="fa-regular fa-envelope"></i> info@dwc.gov.lk</li>
+            <li><i class="fa-solid fa-arrow-up-right-from-square"></i> <a href="#">Visit Official Website</a></li>
+          </ul>
+        </div>
+
+        <!-- Before You Submit Card -->
+        <div class="side-card">
+          <div class="side-header warning-header">
+            <i class="fa-regular fa-circle-question"></i>
+            <h4>Before You Submit</h4>
+          </div>
+          <ul class="bullet-list">
+            <li>Apply for the permit at least 1 week before your planned visit.</li>
+            <li>Carry your approved permit and original NIC / Passport during the visit.</li>
+            <li>Fees and rules may change. Always check the latest information from the official website.</li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="../js/permission.js"></script>
+</body>
+</html>

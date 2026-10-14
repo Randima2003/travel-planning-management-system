@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const API_URL =
-        "http://localhost:8080/api/auth/register";
+    const API_URL = "http://localhost:8080/api/auth/register";
 
 
     // ==============================

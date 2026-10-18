@@ -14,10 +14,15 @@ const activitySchema = z.object({
   cost: z.coerce.number().finite().min(0).max(100000000),
 });
 
+const optionalDateSchema = z.preprocess(
+  (value) => value === "" ? null : value,
+  z.string().date().nullable().optional().default(null)
+);
+
 const tripSchema = z.object({
   destination: z.string().trim().min(2).max(150),
-  startDate: z.string().date().nullable().optional().default(null),
-  endDate: z.string().date().nullable().optional().default(null),
+  startDate: optionalDateSchema,
+  endDate: optionalDateSchema,
   visibility: z.enum(["friends", "private", "public"]).default("friends"),
   budget: z.coerce.number().finite().min(0).max(1000000000).default(0),
   activities: z.array(activitySchema).max(500).default([]),

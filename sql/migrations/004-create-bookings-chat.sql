@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS bookings (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     trip_id INT NOT NULL,
-    traveler_id INT NOT NULL,
-    guide_id INT NOT NULL,
+    traveler_id BIGINT UNSIGNED NOT NULL,
+    guide_id BIGINT UNSIGNED NOT NULL,
     offered_budget DECIMAL(12,2) NOT NULL DEFAULT 0,
     counter_offer DECIMAL(12,2) NULL,
     request_message VARCHAR(1200) NOT NULL DEFAULT '',
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS bookings (
 CREATE TABLE IF NOT EXISTS booking_messages (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     booking_id INT NOT NULL,
-    sender_id INT NOT NULL,
+    sender_id BIGINT UNSIGNED NOT NULL,
     body VARCHAR(2000) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     read_at DATETIME NULL,

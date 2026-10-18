@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS traveler_trips (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    traveler_id INT NOT NULL,
+    traveler_id BIGINT UNSIGNED NOT NULL,
     destination VARCHAR(150) NOT NULL,
     start_date DATE NULL,
     end_date DATE NULL,

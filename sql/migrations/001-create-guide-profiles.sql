@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS guide_profiles (
-    user_id INT NOT NULL PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
     profile_photo_path VARCHAR(500) NULL,
     contact_number VARCHAR(20) NOT NULL,

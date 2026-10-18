@@ -7,6 +7,7 @@ const { notFound, errorHandler } = require("./middleware/error.middleware");
 
 const app = express();
 const authRoutes = require("./routes/auth.routes");
+const bookingRoutes = require("./routes/booking.routes");
 
 app.use(helmet());
 
@@ -32,6 +33,7 @@ app.get("/api/health", (req, res) => {
 
 // Auth routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1", bookingRoutes);
 app.use(notFound);
 app.use(errorHandler);
 

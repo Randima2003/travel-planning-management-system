@@ -13,14 +13,17 @@ function errorHandler(err, req, res, next) {
     return next(err);
   }
 
-  const status = err.status || 500;
+  const duplicateKey = err.code === "ER_DUP_ENTRY";
+  const status = err.status || (duplicateKey ? 409 : 500);
 
   res.status(status).json({
     success: false,
     message:
       status >= 500
         ? "Internal server error"
-        : err.message || "Request failed",
+        : duplicateKey
+          ? "This email or license number is already registered"
+          : err.message || "Request failed",
     ...(err.details ? { details: err.details } : {}),
   });
 }

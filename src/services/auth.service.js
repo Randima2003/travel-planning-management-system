@@ -133,6 +133,17 @@ async function registerGuide(data) {
       throw error;
     }
 
+    const [licenseRows] = await connection.execute(
+      "SELECT user_id FROM guide_profiles WHERE sltda_license_number = ? LIMIT 1",
+      [data.sltdaLicenseNumber]
+    );
+
+    if (licenseRows.length > 0) {
+      const error = new Error("SLTDA license number is already registered");
+      error.status = 409;
+      throw error;
+    }
+
     const passwordHash = await bcrypt.hash(
       data.password,
       12
@@ -227,6 +238,7 @@ async function login(email, password) {
 async function getUserById(id) {
   const userColumns = await getTableColumns(db, "users");
   const profileColumns = await getTableColumns(db, "traveler_profiles");
+  const guideColumns = await getTableColumns(db, "guide_profiles");
   const nameColumn = userColumns.has("full_name") ? "full_name" : "name";
   const statusColumn = userColumns.has("status") ? "u.status" : "NULL AS status";
   const createdAtColumn = userColumns.has("created_at")
@@ -243,13 +255,26 @@ async function getUserById(id) {
     : profileColumns.has("travel_preferences")
       ? "tp.travel_preferences"
       : "NULL AS travel_interests";
+  const guideColumn = (column, alias) => guideColumns.has(column)
+    ? `gp.${column} AS ${alias}`
+    : `NULL AS ${alias}`;
 
   const [rows] = await db.execute(
     `SELECT u.id, u.${nameColumn} AS full_name, u.email, u.role,
             ${statusColumn}, ${createdAtColumn}, ${telephoneColumn},
-            ${countryColumn}, ${interestsColumn}
+            ${countryColumn}, ${interestsColumn},
+            ${guideColumn("contact_number", "guide_telephone_number")},
+            ${guideColumn("location", "guide_location")},
+            ${guideColumn("years_experience", "guide_years_experience")},
+            ${guideColumn("daily_charge_lkr", "guide_daily_rate_lkr")},
+            ${guideColumn("sltda_license_number", "guide_license_number")},
+            ${guideColumn("short_bio", "guide_short_bio")},
+            ${guideColumn("languages", "guide_languages")},
+            ${guideColumn("verification_status", "guide_verification_status")},
+            ${guideColumn("profile_photo_path", "guide_photo_path")}
      FROM users u
      LEFT JOIN traveler_profiles tp ON tp.user_id = u.id
+     LEFT JOIN guide_profiles gp ON gp.user_id = u.id
      WHERE u.id = ?
      LIMIT 1`,
     [id]
@@ -284,7 +309,21 @@ async function getUserById(id) {
         country: user.country || preferences.country || "",
         travelInterests: preferences.interests || []
       };
-    })() : {})
+    })() : user.role === "guide" ? {
+      telephoneNumber: user.guide_telephone_number || "",
+      baseLocation: user.guide_location || "",
+      yearsExperience: Number(user.guide_years_experience) || 0,
+      dailyRateLkr: Number(user.guide_daily_rate_lkr) || 0,
+      sltdaLicenseNumber: user.guide_license_number || "",
+      shortBio: user.guide_short_bio || "",
+      languages: user.guide_languages
+        ? (typeof user.guide_languages === "string"
+          ? JSON.parse(user.guide_languages)
+          : user.guide_languages)
+        : [],
+      verificationStatus: user.guide_verification_status || "pending",
+      profilePhotoPath: user.guide_photo_path || ""
+    } : {})
   };
 }
 
